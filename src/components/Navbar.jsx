@@ -1,14 +1,7 @@
 import { useState } from "react";
-import ThemeToggler from "./ThemeToggler";
+import Contact from "./Contact";
 
 function Navbar() {
-  const links = [
-    { id: 1, name: "Home", to: "#home" },
-    { id: 2, name: "About", to: "#about" },
-    { id: 3, name: "Services", to: "#services" },
-    { id: 4, name: "Projects", to: "#projects" },
-    { id: 5, name: "Contact", to: "#contact" },
-  ];
   const [isOpen, setIsOpen] = useState(false);
   return (
     <nav className="dark:bg-zinc-950 bg-white sticky top-0">
@@ -16,22 +9,19 @@ function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <a href="#home" className="text-2xl font-extrabold text-zinc-900 dark:text-white">
-                cj.dev
+              <a
+                href="/"
+                className="text-xl uppercase font-bold text-zinc-900 dark:text-white"
+              >
+                christian penales
               </a>
             </div>
           </div>
-          <div className="hidden md:flex space-x-8 items-center">
-            {links.map((link) => (
-              <a
-                key={link.id}
-                href={link.to}
-                className="dark:text-white text-zinc-900 hover:text-zinc-600"
-              >
-                {link.name}
-              </a>
-            ))}
-            <ThemeToggler />
+          <div className="hidden md:flex space-x-8 items-center text-sm md:text-base">
+            <p className="text-sm md:text-base tracking-wide font-light text-zinc-950 dark:text-white">
+              penalescjay@gmail.com
+            </p>
+            <Contact />
           </div>
           <div className="-mr-2 flex md:hidden">
             <button
@@ -58,16 +48,11 @@ function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden">
-          {links.map((link) => (
-            <a
-              key={link.id}
-              href={link.to}
-              className="block px-4 py-2 dark:text-white text-zinc-900 hover:text-zinc-600"
-            >
-              {link.name}
-            </a>
-          ))}
+        <div className="md:hidden text-center">
+          <p className="text-sm md:text-base tracking-wide font-light text-zinc-950 dark:text-white">
+            penalescjay@gmail.com
+          </p>
+          <Contact />
         </div>
       )}
     </nav>

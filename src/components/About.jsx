@@ -1,46 +1,22 @@
-import profileImage from "../assets/me.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Slider from "./Slider";
+import { faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-zinc-50 dark:bg-zinc-950">
-      <div className="container mx-auto px-4">
-        <div className="md:flex md:items-center md:justify-around">
-          <div className="md:w-1/2">
-            <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">
-              About Me
-            </h2>
-            <p className="mt-4 text-lg text-zinc-800 dark:text-white">
-              Hi, I&apos;m Christian Jay, a passionate full-stack web developer
-              and UI designer. 
-            </p>
-            <p className="mt-4 text-lg text-zinc-900  dark:text-white">
-              My current development stack includes:
-            </p>
-            <ul className="list-disc list-inside mt-4 text-lg text-zinc-900  dark:text-white">
-              <li>
-                <strong>Frontend:</strong> React, Vue, Tailwind CSS, JavaScript
-                (ES6+)
-              </li>
-              <li>
-                <strong>Backend:</strong> Node.js, Express, Prisma, Laravel,
-                MySQL, PostgreSQL, Supabase
-              </li>
-              <li>
-                <strong>Version Control:</strong> Git, GitHub
-              </li>
-              <li>
-                <strong>Design Tools:</strong> Figma
-              </li>
-              <li>
-                <strong>Other Tools:</strong> NPM, REST APIs
-              </li>
-            </ul>
-          </div>
-          <div className="mt-10 md:mt-0 w-1/2 md:w-1/6 items-center">
-            <img
-              src={profileImage}
-              alt="Profile"
-              className="rounded-lg shadow-lg mx-auto"
-            />
+    <section id="about" className="py-20 dark:bg-zinc-950 bg-white md:h-72">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center md:text-left border-t-2 border-zinc-950 dark:border-white">
+          <p className="text-3xl md:text-8xl uppercase tracking-wide font-extrabold text-zinc-950 dark:text-white">
+            About Me
+            <FontAwesomeIcon icon={faAnglesLeft} className="text-3xl text-red-600 align-baseline hover:-rotate-180 transition ease-in-out" />
+          </p>
+          <p className="py-6 text-sm md:text-xl tracking-wide font-light text-zinc-950 dark:text-white">
+            I&apos;m an aspiring full-stack web developer with a passion for
+            building dynamic websites and web apps using industry-standard tools
+            and best practices.
+          </p>
+          <div className="container pb-2 md:pb-4">
+            <Slider />
           </div>
         </div>
       </div>

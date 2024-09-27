@@ -1,5 +1,5 @@
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 
 function ThemeToggler() {
@@ -23,11 +23,13 @@ function ThemeToggler() {
   };
 
   return (
-    <button
-      onClick={toggleDarkMode}
-      className="p-2 text-zinc-900 dark:text-zinc-100 rounded-md"
-    >
-     <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} className="text-zinc-950 dark:text-zinc-100" />
+    <button onClick={toggleDarkMode}>
+      <FontAwesomeIcon
+        icon={isDarkMode ? faSun : faMoon}
+        className={`text-xl md:text-3xl transition ease-in-out ${
+          isDarkMode ? "text-yellow-500" : "text-blue-800"
+        }`}
+      />
     </button>
   );
 }
