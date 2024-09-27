@@ -8,7 +8,7 @@ function Projects() {
       image: sisterImage,
       description:
         "This was my first full-stack project. It was our project for the web development course.",
-      tags: ["PHP", "Bootstrap", "jQuery"],
+      tags: ["Laravel", "Bootstrap", "jQuery" ],
     },
     // {
     //   id: 2,
@@ -30,7 +30,7 @@ function Projects() {
     <section id="projects" className="py-20 bg-gray-50 dark:bg-zinc-950">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-zinc-900 dark:text-white">
-          My Projects
+          My Projects (I will add more...)
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-6">
           {projects.map((project) => (

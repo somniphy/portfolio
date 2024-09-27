@@ -35,8 +35,8 @@ function Contact() {
         <p className="mt-2 text-xl text-zinc-900 dark:text-white">
           <FontAwesomeIcon icon={faEnvelope} className="mr-2" /> penalescjay@gmail.com
         </p>
-        <p className="mt-12 text-lg text-zinc-800 dark:text-white">
-          Connect with me on social media.
+        <p className="mt-10 text-lg text-zinc-800 dark:text-white">
+          Connect with me.
         </p>
 
         <div className="mt-8 flex justify-center space-x-6">
