@@ -36,7 +36,7 @@ function Navbar() {
           <div className="-mr-2 flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-zinc-900 hover:text-zinc-600 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md dark:text-white text-zinc-900 hover:text-zinc-600 focus:outline-none"
             >
               <svg
                 className="h-6 w-6"
@@ -63,7 +63,7 @@ function Navbar() {
             <a
               key={link.id}
               href={link.to}
-              className="block px-4 py-2 text-zinc-900 hover:text-zinc-600"
+              className="block px-4 py-2 dark:text-white text-zinc-900 hover:text-zinc-600"
             >
               {link.name}
             </a>
