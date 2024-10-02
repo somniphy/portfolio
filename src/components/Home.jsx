@@ -1,25 +1,38 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ThemeToggler from "./ThemeToggler";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
-
+import profilePicture from "../assets/prof.jpg";
+import Contact from "./Contact";
+import { TextEffect } from "./TextEffect";
 const Home = () => {
   return (
-    <section id="home" className="py-12 dark:bg-zinc-950 bg-white h-1/2 md:h-72">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center md:text-end border-t-2 border-zinc-950 dark:border-white">
-       
-          <p className="text-3xl py-2 md:text-8xl uppercase tracking-wide font-extrabold text-zinc-950 dark:text-white">
-            <FontAwesomeIcon icon={faGlobe} className="text-xl md:text-3xl text-cyan-700 hover:-rotate-90 transition ease-in-out align-top"/>
-            Web Developer
-          </p>
-          <p className="text-3xl md:text-8xl uppercase tracking-wide font-extrabold text-zinc-950 dark:text-white">
-            &
-            <ThemeToggler />
-            UI Designer
-          </p>
+    <div className="px-4 md:px-0 md:max-w-5xl mx-auto pt-2 h-1/2 md:h-96">
+      <div className="w-full md:w-64 flex flex-col items-center md:items-start">
+        <img
+          src={profilePicture}
+          alt="Profile Picture"
+          className=" w-32 h-32 rounded-full object-cover border-gray-800"
+        />
+        <div className="pt-8 md:text-lg text-sm  text-zinc-50">
+        <TextEffect text={"Christian Penales"}/>
+        </div>
+  
+        
+        <div className="pt-6 text-sm text-zinc-400">Web Developer</div>
+        <div className="text-sm text-zinc-400">UI/UX Designer</div>
+        <div className="text-sm text-zinc-400">Cybersecurity</div>
+        <div className="pt-8">
+          <div className="pt-2">
+            <Contact />
+          </div>
+        </div>
+        <div className="pt-2">
+          <span
+            className="text-sm animate-text-gradient bg-gradient-to-r from-[#ffffff] via-[#dddddd] to-[#bebebe] 
+                bg-[200%_auto] bg-clip-text text-transparent"
+          >
+            penalescjay@gmail.com
+          </span>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

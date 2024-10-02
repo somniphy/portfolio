@@ -26,8 +26,8 @@ function ThemeToggler() {
     <button onClick={toggleDarkMode}>
       <FontAwesomeIcon
         icon={isDarkMode ? faSun : faMoon}
-        className={`text-xl md:text-3xl transition ease-in-out ${
-          isDarkMode ? "text-yellow-500" : "text-blue-800"
+        className={`text-xl md:text-2xl transition ease-in-out ${
+          isDarkMode ? "text-gray-50" : "text-gray-950"
         }`}
       />
     </button>

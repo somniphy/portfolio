@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
-  faGithub,
+  faGithub, 
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 function Contact() {
@@ -26,8 +26,8 @@ function Contact() {
     },
   ];
   return (
-    <section id="contact" className=" py-4 bg-zinc-50 dark:bg-zinc-950">
-        <div className="container space-x-4 text-center md:text-end">
+    <section id="contact">
+        <div className="container space-x-4">
           {" "}
           {/* Adjust the value (space-x-6) as needed */}
           {socialLinks.map((link) => (
@@ -36,7 +36,7 @@ function Contact() {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-zinc-950 hover:text-zinc-700 text-2xl dark:text-white"
+              className=" hover:text-gray-700 text-2xl text-white"
               aria-label={link.name}
             >
               <FontAwesomeIcon icon={link.icon} />
