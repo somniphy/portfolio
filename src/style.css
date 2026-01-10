@@ -1,20 +1,8 @@
-@font-face {
-  font-family: "PP Neue Montreal Medium";
-  src: url("/fonts/ppneuemontreal-medium.otf") format("opentype");
-}
-
-@font-face {
-  font-family: "PP Neue Montreal Bold";
-  src: url("/fonts/ppneuemontreal-bold.otf") format("opentype");
-}
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
 :root {
-  --light: #eaeaea;
-  --dark: #070707;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --light: #fff;
+  --dark: #0f0f0f;
 }
 
 * {
@@ -24,46 +12,8 @@
 }
 
 body {
-  font-family: "PP Neue Montreal Medium";
-  background-color: var(--dark);
+  font-family: "DM Sans", sans-serif;
   overflow: hidden;
-}
-
-nav {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  z-index: 15;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: first baseline;
-}
-
-nav .block {
-  display: block;
-  flex: 1;
-}
-
-nav .block-2 {
-  display: block;
-  flex: 2;
-}
-
-p,
-a {
-  font-family: "PP Neue Montreal Bold";
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1rem;
-  text-transform: uppercase;
-  line-height: 1.1em;
-  letter-spacing: -3%;
-  user-select: none;
-  color: var(--light);
 }
 
 img {
@@ -72,114 +22,380 @@ img {
   object-fit: cover;
 }
 
-h1 {
-  letter-spacing: -3%;
-  line-height: 100%;
-}
-
-h3 {
-  font-size: 2.25rem;
+a,
+p {
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "DM Mono", monospace;
+  font-size: 0.9rem;
   font-weight: 500;
-  letter-spacing: -0.025rem;
-  line-height: 1.125;
+  line-height: 1.25;
+  color: #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.menu-overlay {
+nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100svh;
-  overflow: hidden;
-  background-color: var(--dark);
-  color: var(--light);
-  z-index: 10;
-  will-change: clip-path;
-}
-
-.menu-content {
-  position: relative;
   width: 100%;
-  height: 100%;
-  padding: 1rem;
+  padding: 2rem;
   display: flex;
   justify-content: space-between;
-  align-items: last baseline;
-  will-change: transform, opacity;
-  overflow: hidden;
-
+  align-items: flex-start;
 }
 
-.menu-link {
-  position: relative;
-  will-change: transform;
-  overflow: hidden;
-}
-
-.menu-link a {
-  position: relative;
-  color: var(--light);
-  font-size: clamp(2rem, 4vw, 8rem);
-  letter-spacing: -3%;
-  line-height: 1.1em;
-  display: inline-block;
-  overflow: hidden;
-  text-transform: uppercase;
-}
-
-.menu-link a span:nth-child(2) {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.menu-overlay {
-  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
-}
-
-.char {
-  position: relative;
-  display: inline-block;
-  will-change: transform;
+.nav-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 .container {
   position: relative;
-  height: 100svh;
   width: 100vw;
-  background-color: var(--dark);
-  will-change: background-color;
-  z-index: 0;
+  height: 100vh;
   overflow: hidden;
+  z-index: 0;
 }
 
 .hero {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  padding: 1rem;
-  height: 100%;
+  position: relative;
   width: 100%;
+  height: 100svh;
+  overflow: hidden;
 }
 
-.hero-img {
-  position: relative;
-  width: 480px;
-  height: 240px;
-  will-change: transform, opacity;
+.hero-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100svh;
+  background-color: var(--dark);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  will-change: clip-path;
+  z-index: 1;
+}
+
+.hero-overlay .counter {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  color: var(--light);
+}
+
+.hero-overlay .counter h1 {
+  font-size: 4rem;
+  font-weight: 500;
+}
+
+.overlay-text-container {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  height: 2rem;
+  overflow: hidden;
+}
+
+.overlay-text-container .overlay-text {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(2rem);
+  will-change: transform;
+}
+
+.overlay-text-container .overlay-text p {
+  color: var(--light);
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.hero-images {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 10vw;
+  will-change: gap;
+  z-index: 1;
+}
+
+.hero-images .img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  transform: translateY(50%) scale(0.5);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  opacity: 0;
+  will-change: opacity, transform, clip-path;
 }
 
 .hero-header {
-  font-size: clamp(2rem, 4vw, 8rem);
-  color: var(--light);
-  font-weight: bold;
-  font-family: "PP Neue Montreal Bold";
-  text-transform: uppercase;
-  width: fit-content;
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+  z-index: -1;
 }
 
-@media (max-width: 1440px) {
-  p {
-    font-size: 0.96rem;
+.hero-header h1 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 8vw;
+  font-weight: 500;
+  line-height: 0.85;
+}
+
+.hero-header h1 .word {
+  transform: translateY(100%);
+  will-change: transform;
+}
+
+.hero-header p {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 0.85;
+}
+
+.hero-header p .word {
+  transform: translateY(100%);
+  will-change: transform;
+}
+
+.roll {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  height: 1rem;
+  text-decoration: none;
+}
+
+.roll .text {
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.roll .text:nth-child(1) {
+  transform: translateY(0%);
+}
+
+.roll .text:nth-child(2) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(100%);
+}
+
+.roll:hover .text:nth-child(1) {
+  transform: translateY(-100%);
+}
+
+.roll:hover .text:nth-child(2) {
+  transform: translateY(0%);
+}
+
+.img-preview-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--light);
+  z-index: 2;
+  transform: translateY(0%);
+}
+
+
+.img-preview {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.img-preview img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.minimap {
+  position: absolute;
+  top: 50%;
+  right: 8em;
+  width: 80px;
+}
+
+.indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  border: 1px solid #000;
+  z-index: 2;
+}
+
+.items {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  will-change: transform;
+}
+
+.item {
+  width: 100%;
+  height: 60px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.img-profile-reveal {
+  position: absolute;
+  top: 8rem;
+  left: 2rem;
+  width: 32%;
+  height: 48%;
+  overflow: hidden;
+}
+
+.img-profile-reveal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.2);
+}
+
+.img-profile-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--light);
+  z-index: 2;
+  transform: translateY(0%);
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.about-copy {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  max-width: 64%;
+}
+.about-tools {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  top: 8rem;
+  right: 2rem;
+}
+
+.about-contact {
+  position: absolute;
+  display: flex;
+  gap: 2rem;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+@media (max-width: 1000px) {
+  body {
+    overflow: hidden;
+    touch-action: none;
+  }
+  .container {
+    touch-action: none;
+  }
+
+  nav {
+    padding: 1rem;
+  }
+  .hero-overlay .counter {
+    right: 1rem;
+    bottom: 1rem;
+  }
+  .hero-images {
+    padding: 0 0.5rem;
+    gap: 2.5vw;
+  }
+  .hero-images .img {
+    width: 20vw;
+  }
+
+  .minimap {
+    top: auto;
+    right: auto;
+    bottom: 5em;
+    left: 50%;
+    width: auto;
+    height: 80px;
+    touch-action: none;
+  }
+  .indicator {
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 100%;
+  }
+  .items {
+    flex-direction: row;
+    width: max-content;
+    height: 100%;
+    touch-action: none;
+  }
+
+  .item {
+    width: 60px;
+    height: 100%;
+    padding: 5px;
+  }
+
+  .img-preview {
+    top: 45%;
+    width: 75%;
+    height: 50%;
+  }
+
+  .img-profile-reveal {
+    top: 4rem;
+    left: 1rem;
+    width: 24%;
+    height: 32%;
+    overflow: hidden;
+  }
+
+  .about-copy {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    max-width: 100%;
+  }
+  .about-tools {
+    position: absolute;
+    top: 4rem;
+    right: 1rem;
+  }
+  .about-contact {
+    position: absolute;
+    display: flex;
+    gap: 1rem;
+    top: 48%;
+    left: 1rem;
   }
 }

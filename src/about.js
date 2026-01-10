@@ -15,6 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   gsap.ticker.lagSmoothing(0);
 
+  let split = SplitText.create(".about-copy, .about-tools, .about-contact", {
+    type: "lines",
+    mask: "lines",
+    linesClass: "line",
+  });
+
+  gsap.set(split.lines, { yPercent: 120 });
+
   const counterTl = gsap.timeline({ delay: 0.4 });
   const overlayTextTl = gsap.timeline({ delay: 0.75 });
   const revealTl = gsap.timeline({ delay: 0.5 });
@@ -86,13 +94,13 @@ document.addEventListener("DOMContentLoaded", () => {
       duration: 1,
       ease: "hop",
     })
-    .to(".img-preview-overlay", {
+    .to(".img-profile-overlay", {
       yPercent: -100,
       duration: 1.1,
       ease: "power4.inOut",
     })
     .to(
-      ".img-preview img",
+      ".img-profile-reveal img",
       {
         scale: 1,
         duration: 1.2,
@@ -100,11 +108,24 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       "<"
     )
+    .to(
+      split.lines,
+      {
+        yPercent: 0,
+        stagger: 0.15,
+        duration: 1.1,
+        ease: "hop",
+      },
+      "<+=0.3"
+    )
     .to("nav", {
       zIndex: 2,
     })
     .to(".container", {
+      y: "0",
+      opacity: 1,
+      duration: 0.75,
+      ease: "hop",
       zIndex: 1,
     });
-    
 });

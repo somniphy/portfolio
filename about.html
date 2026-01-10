@@ -2,85 +2,122 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>[About] Christian Penales</title>
+    <title>About + + Christian Penales</title>
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <div data-barba="wrapper">
-   <header>
-        <nav>
-          <div class="block">
-            <p>Web Developer</p>
-            <p>UI/UX Designer</p>
-          </div>
-          <div class="block-2">
-            <p>Available for Freelance</p>
-            <p>or Full-time projects</p>
-          </div>
-          <div class="nav-toggle"><p class="menu-label">Menu</p></div>
-        </nav>
-        <div class="menu-overlay">
-          <div class="menu-content">
-            <div class="menu-col">
-              <div class="menu-link">
-                <a href="/index.html">
-                  <span>Index</span>
-                  <span>Index</span>
-                </a>
-              </div>
-              <div class="menu-link">
-                <a href="/about.html">
-                  <span>About</span>
-                  <span>About</span>
-                </a>
-              </div>
-              <div class="menu-link">
-                <a href="/works.html">
-                  <span>Works</span>
-                  <span>Works</span>
-                </a>
-              </div>
-              <div class="menu-link">
-                <a href="/contact.html">
-                  <span>Contact</span>
-                  <span>Contact</span>
-                </a>
-              </div>
-            </div>
-            <div class="menu-col">
-              <div class="menu-link">
-                <a href="/index.html">
-                  <span>linkedin</span>
-                  <span>linkedin</span>
-                </a>
-              </div>
-              <div class="menu-link">
-                <a href="/index.html">
-                  <span>dribbble</span>
-                  <span>dribbble</span>
-                </a>
-              </div>
-            </div>
+    <nav>
+      <div class="nav-logo">
+        <a href="/index">Christian Penales</a>
+        <p>UI/UX Designer + Web Developer</p>
+      </div>
+      <div class="nav-items">
+        <a href="/index" class="roll">
+          <span class="text">Index</span>
+          <span class="text">Index</span>
+        </a>
+        <a href="/about" class="roll">
+          <span class="text">About</span>
+          <span class="text">About</span>
+        </a>
+      </div>
+    </nav>
+    <section class="hero">
+      <div class="hero-overlay">
+        <div class="counter">
+          <h1>0</h1>
+        </div>
+        <div class="overlay-text-container">
+          <div class="overlay-text">
+            <p>UX/UI</p>
+            <p>Web Development</p>
+            <p>Graphic Design</p>
           </div>
         </div>
-      </header>
-      <main
-        class="container"
-        data-barba="container"
-        data-barba-namespace="about"
-      >
-        <section class="hero">
-          <div class="hero-header">
-            <h1>About.</h1>
+      </div>
+      <!--loader images-->
+        <div class="hero-images">
+        <div class="img">
+          <img src="/minimap-assets/iced-cover.jpg" alt="" />
+        </div>
+        <div class="img">
+          <img src="/minimap-assets/sailfast-cover.jpg" alt="" />
+        </div>
+        <div class="img">
+          <img src="/minimap-assets/relai-cover.jpg" alt="" />
+        </div>
+        <div class="img">
+          <img src="/minimap-assets/zypto-cover.jpg" alt="" />
+        </div>
+        <div class="img">
+          <img src="/minimap-assets/studio-cover.jpg" alt="" />
+        </div>
+      </div>
+
+      <div class="container">
+        <section class="about-section">
+          <div class="img-profile-reveal">
+            <div class="img-profile-overlay"></div>
+            <img src="/minimap-assets/relai-cover.jpg" />
           </div>
-          <div class="hero-img">
-            <img src="/Hero.png" alt="" />
+          <div class="about-copy">
+            <p>
+              LOVES TO BUILD INTERACTIVE WEBSITES.
+            </p>
+            <p>KNOWLEDGABLE IN MODERN TECHNOLOGIES AND DESIGN TRENDS.</p>
+            <p>
+              loves to build websites and web applications with a strong focus
+              on usability and performance.
+            </p>
+            <p>
+              focus on building products that not only look great but also solve
+              real problems and provide meaningful experiences for users.
+            </p>
           </div>
-        </section>
-      </main>
-    </div>
-    <script type="module" src="/src/main.js"></script>
+          <div class="about-tools">
+            <p>Tools/Tech:</p>
+            <p>HTML, CSS, JS, Tailwind</p>
+            <p>GSAP, Three.js, Barba.js</p>
+            <p>React, Next.js, Vite</p>
+            <p>PHP, Laravel,</p>
+            <p>Framer, Figma</p>
+            <p>Shopify,</p>
+            <p>Webflow(currently exploring).</p>
+          </div>
+          <div class="about-contact">
+            <a
+              href="http://www.linkedin.com/in/chrispenales"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="roll"
+            >
+              <span class="text">LinkedIn</span>
+              <span class="text">LinkedIn</span>
+            </a>
+            <a
+              href="http://www.dribbble.com/christian-jay-penales"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="roll"
+            >
+              <span class="text">Dribbble</span>
+              <span class="text">Dribbble</span>
+            </a>
+            <a
+              href="http://www.github.com/somniphy"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="roll"
+            >
+              <span class="text">GitHub</span>
+              <span class="text">GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script type="module" src="src/main.js"></script>
+    <script type="module" src="src/about.js"></script>
   </body>
 </html>
