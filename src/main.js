@@ -88,17 +88,15 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .to(".img-preview-overlay", {
       yPercent: -100,
-
       duration: 1.1,
-      ease: "hop",
+      ease: "power4.inOut",
     })
     .to(
-      ".img-preview img",
+      ".img-preview-reveal img",
       {
         scale: 1,
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
         duration: 1.2,
-        ease: "hop",
+        ease: "power4.out",
       },
       "<"
     )
