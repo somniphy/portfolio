@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ".img-preview img",
       {
         scale: 1,
-        
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
         duration: 1.2,
         ease: "hop",
       },
