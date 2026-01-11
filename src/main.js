@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   counterTl.to(counter, {
     value: 100,
     duration: 4,
-    ease: "power2.out",
+    ease: "hop",
     onUpdate: () => {
       counterProgress.textContent = Math.floor(counter.value);
     },
@@ -88,15 +88,17 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .to(".img-preview-overlay", {
       yPercent: -100,
+
       duration: 1.1,
-      ease: "power4.inOut",
+      ease: "hop",
     })
     .to(
       ".img-preview img",
       {
         scale: 1,
+        
         duration: 1.2,
-        ease: "power4.out",
+        ease: "hop",
       },
       "<"
     )
@@ -106,5 +108,4 @@ document.addEventListener("DOMContentLoaded", () => {
     .to(".container", {
       zIndex: 1,
     });
-    
 });

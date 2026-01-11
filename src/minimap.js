@@ -3,6 +3,7 @@ const items = document.querySelector(".items");
 const indicator = document.querySelector(".indicator");
 const itemElements = document.querySelectorAll(".item");
 const previewImage = document.querySelector(".img-preview img");
+const previewContainer = document.querySelector(".img-preview");
 const itemImages = document.querySelectorAll(".item img");
 
 let isHorizontal = window.innerWidth <= 900;
@@ -18,6 +19,15 @@ let targetTranslate = 0;
 let isClickMove = false;
 let currentImageIndex = 0;
 const activeItemOpacity = 0.3;
+
+// Project links array
+const projectLinks = [
+  "https://relai.framer.website", // Index 0
+  "https://sailfast.framer.website", // Index 1
+  "https://studio.framer.website", // Index 2
+  "https://zypto.framer.website", // Index 3
+  "https://iced.framer.website", // Index 4
+];
 
 function lerp(start, end, factor) {
   return start + (end - start) * factor;
@@ -73,13 +83,11 @@ function getItemInIndicator() {
 }
 
 function updatePreviewImage(index) {
-  // console.log("Updating Preview Image to Index:", index); // Debugging
   if (currentImageIndex !== index) {
     currentImageIndex = index;
     const targetItem = itemElements[index].querySelector("img");
     const targetSrc = targetItem.getAttribute("src");
     previewImage.setAttribute("src", targetSrc);
-    // console.log("Preview Image Updated to:", targetSrc); // Debugging
   }
 }
 
@@ -94,7 +102,6 @@ function animate() {
     items.style.transform = transform;
 
     const activeIndex = getItemInIndicator();
-    // console.log("Active Index:", activeIndex); // Debugging
     updatePreviewImage(activeIndex);
   } else {
     isClickMove = false;
@@ -103,14 +110,70 @@ function animate() {
   requestAnimationFrame(animate);
 }
 
+previewContainer.style.cursor = "pointer";
+
+previewContainer.addEventListener("mouseenter", () => {
+  previewContainer.style.cursor = "pointer";
+});
+
+// Click handler for preview image
+previewContainer.addEventListener("click", () => {
+  const projectUrl = projectLinks[currentImageIndex];
+  if (projectUrl) {
+    // Option 1: Navigate in same tab
+    
+
+    // Option 2: Open in new tab (uncomment if preferred)
+    window.open(projectUrl, "_blank");
+  }
+});
+
+// Add pointer cursor to minimap items
+itemElements.forEach((item) => {
+  item.style.cursor = "pointer";
+
+  // Optional: Add hover effect to minimap items
+  item.addEventListener("mouseenter", () => {
+    item.style.opacity = "0.8";
+    item.style.transition = "opacity 0.2s ease";
+  });
+
+  item.addEventListener("mouseleave", () => {
+    item.style.opacity = "1";
+  });
+});
+
+// ============================================
+// Original Event Handlers
+// ============================================
+
 container.addEventListener(
   "wheel",
   (e) => {
     e.preventDefault();
     isClickMove = false;
 
-    let delta;
-    delta = e.deltaY;
+    const delta = e.deltaY;
+    const scrollVelocity = Math.min(Math.max(delta * 0.5, -20), 20);
+
+    targetTranslate = Math.min(
+      Math.max(targetTranslate - scrollVelocity, -maxTranslate),
+      0
+    );
+  },
+  { passive: false }
+);
+
+let touchStartPos = 0;
+container.addEventListener("touchstart", (e) => {
+  touchStartPos = isHorizontal ? e.touches[0].clientX : e.touches[0].clientY;
+});
+
+container.addEventListener(
+  "touchmove",
+  (e) => {
+    const touchPos = isHorizontal ? e.touches[0].clientX : e.touches[0].clientY;
+    const delta = touchStartPos - touchPos;
 
     const scrollVelocity = Math.min(Math.max(delta * 0.5, -20), 20);
 
@@ -118,36 +181,8 @@ container.addEventListener(
       Math.max(targetTranslate - scrollVelocity, -maxTranslate),
       0
     );
-    // console.log("Wheel Event Triggered, Target Translate:", targetTranslate); // Debugging
-  },
-  { passive: false }
-);
-
-let touchStartY = 0;
-container.addEventListener("touchstart", (e) => {
-  if (isHorizontal) {
-    touchStartY = e.touches[0].clientY;
-  }
-});
-
-container.addEventListener(
-  "touchmove",
-  (e) => {
-    if (isHorizontal) {
-      const touchY = e.touches[0].clientY;
-      const deltaY = touchStartY - touchY;
-
-      const delta = deltaY;
-      const scrollVelocity = Math.min(Math.max(delta * 0.5, -20), 20);
-
-      targetTranslate = Math.min(
-        Math.max(targetTranslate - scrollVelocity, -maxTranslate),
-        0
-      );
-      touchStartY = touchY;
-      e.preventDefault();
-      // console.log("Touchmove Event Triggered, Target Translate:", targetTranslate); // Debugging
-    }
+    touchStartPos = touchPos;
+    e.preventDefault();
   },
   { passive: false }
 );
@@ -159,15 +194,14 @@ itemElements.forEach((item, index) => {
       -index * dimensions.itemSize +
       (dimensions.indicatorSize - dimensions.itemSize) / 2;
     targetTranslate = Math.max(Math.min(targetTranslate, 0), -maxTranslate);
-    // console.log("Click Event Triggered, Target Translate:", targetTranslate); // Debugging
   });
 });
 
 window.addEventListener("resize", () => {
   dimensions = updateDimensions();
-  const newMaxTranslate = dimensions.containerSize - dimensions.indicatorSize;
+  maxTranslate = dimensions.containerSize - dimensions.indicatorSize;
 
-  targetTranslate = Math.min(Math.max(targetTranslate, -newMaxTranslate), 0);
+  targetTranslate = Math.min(Math.max(targetTranslate, -maxTranslate), 0);
   currentTranslate = targetTranslate;
 
   const transform = isHorizontal
@@ -176,6 +210,7 @@ window.addEventListener("resize", () => {
   items.style.transform = transform;
 });
 
+// Initialize
 itemImages[0].style.opacity = activeItemOpacity;
 updatePreviewImage(0);
 animate();
