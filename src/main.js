@@ -86,13 +86,13 @@ document.addEventListener("DOMContentLoaded", () => {
       duration: 1,
       ease: "hop",
     })
-    .to(".img-preview-overlay", {
+   .to(".img-preview-overlay", {
       yPercent: -100,
       duration: 1.1,
       ease: "power4.inOut",
     })
     .to(
-      ".img-preview-reveal img",
+      ".img-preview img",
       {
         scale: 1,
         duration: 1.2,
